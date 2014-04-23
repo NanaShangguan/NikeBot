@@ -19,6 +19,7 @@ function start() {
             $.ajax({
                 url: item.url,
                 type: "GET",
+                async:false,
                 success: function(responseText) {
 //                    var form = $('#form_pdp_addtocart', responseText);
 //                    if (form.attr('style') != 'display: none;') {
@@ -74,6 +75,7 @@ function start() {
                         $.ajax({
                             url: 'https://secure-store.nike.com/us/services/jcartService',
                             type: 'POST',
+                            async:false,
                             data: {
                                 callback: callback,
                                 action: action,
@@ -102,9 +104,9 @@ function start() {
                 }
             });
         });
-        $.each(rm, function(index, info) {
-            urlList.splice(info, 1);
-        });
+        for (var i = 0; i < rm.length; i++) {
+            urlList.splice(rm[i] - i, 1);
+        }
         localStorage['urlList'] = JSON.stringify(urlList);
         setTimeout(start, interval);
     }
