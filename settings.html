@@ -1,9 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>settings</title>
+    <script type="text/javascript" src="jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="settings.js"></script>
+    <style type="text/css">
+        body, input, button {
+            font-family: 'Microsoft YaHei';
+            font-size: 18px;
+        }
+        body {
+            text-align: center;
+        }
+        ul li {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 700px;;
+        }
+    </style>
 </head>
 <body>
-
+<h3>url list</h3>
+<ul id="storeList"></ul>
+<ul id="inputList">
+    <li><input type="text"></li>
+</ul>
+<button id="add">add input field</button>
+<button id="save">save</button>
+<h3>size</h3>
+<span id="size"></span>
+<input id="newSize" type="text" style="width: 80px;">
+<button id="modifySize">modify</button>
 </body>
 </html>

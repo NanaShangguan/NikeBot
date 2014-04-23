@@ -3,10 +3,15 @@
  */
 
 $(document).ready(function(){
+    if (localStorage['state'] == 'start')
+        $("#start").text('stop');
+    else $("#start").text('start');
     $("#start").click(function() {
         if (this.innerHTML == 'start') {
-            this.innerHTML = 'stop';
-            chrome.extension.sendRequest({action: 'start'});
+            if (localStorage['urlList']) {
+                this.innerHTML = 'stop';
+                chrome.extension.sendRequest({action: 'start'});
+            } else alert('url list is empty');
         } else {
             this.innerHTML = 'start';
             chrome.extension.sendRequest({action: 'stop'});
